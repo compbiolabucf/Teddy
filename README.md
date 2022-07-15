@@ -19,7 +19,10 @@ Pre-preprocess the gene expression and SNP data.
 **Imputation.py**
 Performs gene expression imutation
 
+**Prediction.py**
+Predicts IA status of participants
 
+## Codes
 
-
+Gene expression and SNP can be downloaded from the following link.
 https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001442.v1.p1
