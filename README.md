@@ -4,6 +4,6 @@ Time series gene expression in TEDDY is collected for a subset of enrolled parti
 
 ### **Framework**
 
-![Image description](https://github.com/compbiolabucf/omicsGAN/blob/main/netflow-1.png)
+![Image description](https://github.com/compbiolabucf/Teddy/blob/main/overall_figure.pdf)
 
 https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001442.v1.p1
