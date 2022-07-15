@@ -24,5 +24,5 @@ Predicts IA status of participants
 
 ## Codes
 
-Gene expression and SNP can be downloaded from the following link.
+Gene expression and SNP can be downloaded from this link:
 https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001442.v1.p1
