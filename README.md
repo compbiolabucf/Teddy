@@ -12,17 +12,23 @@ Time series gene expression in TEDDY is collected for a subset of enrolled parti
 - sklearn (>=0.21.3)
 - PyTorch (pytorch version >=1.5.0, torchvision version >=0.6.0)
 
-## Codes
-**data_processing.py**
-Pre-preprocess the gene expression and SNP data.
+## Imputation
 
+![Image description](https://github.com/compbiolabucf/Teddy/blob/main/Figure_3.png)
+**data_processing.py**
+Pre-preprocess the gene expression and SNP data for imputation.
 **Imputation.py**
-Performs gene expression imutation
+Performs gene expression imputation.  
+
+## Prediction
+
+
+
 
 **Prediction.py**
 Predicts IA status of participants
 
-## Codes
+## Datasets
 
 Gene expression and SNP can be downloaded from this link:
 https://www.ncbi.nlm.nih.gov/projects/gap/cgi-bin/study.cgi?study_id=phs001442.v1.p1
