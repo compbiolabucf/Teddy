@@ -16,12 +16,12 @@ Time series gene expression in TEDDY is collected for a subset of enrolled parti
 
 ![Image description](https://github.com/compbiolabucf/Teddy/blob/main/Figure_3.png)
 **data_processing.py**
-Run first to pre-preprocess the gene expression and SNP data for imputation.
+Run data_processing.py to pre-preprocess the gene expression and SNP data for imputation.
 
 *command*: python data_processing.py 
 
 **imputation.py**
-Run to perform gene expression imputation on processed data.  
+Run imputation.py to perform gene expression imputation on processed data.  
 
 *command*: Python imputation.py --data_directory /home/tanvir/Diabetes/data/processed_data/ --save_directory /home/tanvir/Diabetes/data/imputed_data/ --n_epochs 100 --batch_size 32 --learning_rate 1e-3 --true_enc_hidden_size 100 --true_enc_batch_size 32 --true_enc_num_epochs 100 --true_enc_learning_rate 1e-4 --true_enc_gamma 0.99 --syn_enc_num_epochs 25 --syn_enc_batch_size 512 --syn_enc_learning_rate 1e-5
 
@@ -53,11 +53,26 @@ Run to perform gene expression imputation on processed data.
 
 ## Prediction
 
+**prediction.py**
+Run prediction.py to predicts IA status of participants. 
 
+*command*: python prediction.py --hidden_size 200 --num_layers 3 --num_epochs 5 --batch_size 8 --learning_rate 0.00001 --end 24 --serial 16 --option 0 
 
+--hidden_size: size of the hidden representation in LSTM
 
-**Prediction.py**
-Predicts IA status of participants
+--num_layers: number of layers in LSTM
+
+--num_epochs: number of training epochs in LSTM 
+
+--batch_size: batch size in LSTM
+
+--learning_rate: learning rate in LSTM
+
+--end: IA time cutoff in months  
+
+--serial: gene expression cutoff in number of time steps 
+
+--option: run the model using combined data or only gene expression. Use 0 for combined data and 6 for only gene expression.
 
 ## Datasets
 
