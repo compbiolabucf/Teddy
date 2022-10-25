@@ -17,10 +17,13 @@ Time series gene expression in TEDDY is collected for a subset of enrolled parti
 ![Image description](https://github.com/compbiolabucf/Teddy/blob/main/Figure_3.png)
 **data_processing.py**
 Run first to pre-preprocess the gene expression and SNP data for imputation.
+
 *command*: python data_processing.py 
 
 **Imputation.py**
 Run to perform gene expression imputation on processed data.  
+
+*command*:
 
 ## Prediction
 
