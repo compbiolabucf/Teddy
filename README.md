@@ -58,7 +58,7 @@ Run imputation.py to perform gene expression imputation on processed data.
 ## Prediction
 
 **prediction.py**
-Run prediction.py to predicts IA status of participants. 
+Run prediction.py to predicts IA status of participants using imputated data. 
 
 *command*: python prediction.py --hidden_size 200 --num_layers 3 --num_epochs 5 --batch_size 8 --learning_rate 0.00001 --end 24 --serial 16 --option 0 --imputed_data_dir /home/tanvir/Diabetes/data/imputed_data/ --processed_data_dir /home/tanvir/Diabetes/data/processed_data/ --raw_data_dir /home/tanvir/Diabetes/data/raw_data/
 
