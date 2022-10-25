@@ -131,12 +131,15 @@ if __name__ == '__main__':
     parser.add_argument("--end", type=int,help='IA cutoff', default=25)  
     parser.add_argument("--serial", type=int,help='gene exp cutoff', default=16) 
     parser.add_argument("--option", type=int,help='0 for combined data, 3 for only gene exp',default=0) 
+    parser.add_argument("--imputed_data_dir", type=str,help='save directory for imputation.py',default='/home/tanvir/Diabetes/data/imputed_data/') 
+    parser.add_argument("--processed_data_dir", type=str,help='save directory for data_processing.py',default='/home/tanvir/Diabetes/data/processed_data/') 
+    parser.add_argument("--raw_data_dir", type=str,help='directory of raw omics data',default='/home/tanvir/Diabetes/data/raw_data/') 
     args = parser.parse_args()
     print(args)
 
-imputed_data_dir = '/home/tanvir/Diabetes/data/imputed_data/'
-processed_data_dir = '/home/tanvir/Diabetes/data/processed_data/'
-raw_data_dir = '/home/tanvir/Diabetes/data/raw_data/'
+imputed_data_dir = args.imputed_data_dir
+processed_data_dir = args.processed_data_dir
+raw_data_dir = args.raw_data_dir
 
 input_data = np.load(imputed_data_dir+'imputed_gene.npy') 
 sample_name = pd.read_csv(processed_data_dir+'sample_name.csv',header=None) 
