@@ -4,11 +4,18 @@ from sklearn import preprocessing
 from scipy import sparse
 from sklearn.decomposition import PCA
 import random,os,sys
+import argparse
 pd.options.mode.chained_assignment = None 
 
-
-data_directory = '/home/tanvir/Diabetes/data/raw_data/'
-save_directory = '/home/tanvir/Diabetes/data/processed_data/'
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--data_directory", type=int,help='directory for raw omics data',default='/home/tanvir/Diabetes/data/raw_data/') 
+    parser.add_argument("--save_directory", type=int,help='directory to save processed data',default='/home/tanvir/Diabetes/data/processed_data/') 
+    args = parser.parse_args()
+    print(args)
+	
+data_directory = args.data_directory
+save_directory = args.save_directory
 os.makedirs(save_directory, exist_ok=True)
 
 
