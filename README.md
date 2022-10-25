@@ -20,6 +20,10 @@ Run data_processing.py to pre-preprocess the gene expression and SNP data for im
 
 *command*: python data_processing.py --data_directory /home/tanvir/Diabetes/data/raw_data/ --save_directory /home/tanvir/Diabetes/data/processed_data/
 
+--data_directory: directory of raw omics data
+
+--save_directory: directory to save processed data
+
 **imputation.py**
 Run imputation.py to perform gene expression imputation on processed data.  
 
