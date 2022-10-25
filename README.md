@@ -60,7 +60,7 @@ Run imputation.py to perform gene expression imputation on processed data.
 **prediction.py**
 Run prediction.py to predicts IA status of participants. 
 
-*command*: python prediction.py --hidden_size 200 --num_layers 3 --num_epochs 5 --batch_size 8 --learning_rate 0.00001 --end 24 --serial 16 --option 0 
+*command*: python prediction.py --hidden_size 200 --num_layers 3 --num_epochs 5 --batch_size 8 --learning_rate 0.00001 --end 24 --serial 16 --option 0 --imputed_data_dir /home/tanvir/Diabetes/data/imputed_data/ --processed_data_dir /home/tanvir/Diabetes/data/processed_data/ --raw_data_dir /home/tanvir/Diabetes/data/raw_data/
 
 --hidden_size: size of the hidden representation in LSTM
 
@@ -77,6 +77,12 @@ Run prediction.py to predicts IA status of participants.
 --serial: gene expression cutoff in number of time steps 
 
 --option: run the model using combined data or only gene expression. Use 0 for combined data and 6 for only gene expression.
+
+--imputed_data_dir: save directory for imputation.py
+
+--processed_data_dir: save directory for data_processing.py
+
+--raw_data_dir: directory of raw omics data
 
 ## Datasets
 
