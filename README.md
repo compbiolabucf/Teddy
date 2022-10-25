@@ -26,8 +26,11 @@ Run to perform gene expression imputation on processed data.
 *command*: Python imputation.py --data_directory /home/tanvir/Diabetes/data/processed_data/ --save_directory /home/tanvir/Diabetes/data/imputed_data/ --n_epochs 100 --batch_size 32 --learning_rate 1e-3 --true_enc_hidden_size 100 --true_enc_batch_size 32 --true_enc_num_epochs 100 --true_enc_learning_rate 1e-4 --true_enc_gamma 0.99 --syn_enc_num_epochs 25 --syn_enc_batch_size 512 --syn_enc_learning_rate 1e-5
 
 --data_directory: directory of input data
+
 --save_directory: directory to save output
---n_epochs: number of epoch for C_1
+
+--n_epochs: number of epoch for C<sub>1</sub>
+
 --batch_size:
 --learning_rate:
 --true_enc_hidden_size:
