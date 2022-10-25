@@ -31,16 +31,25 @@ Run to perform gene expression imputation on processed data.
 
 --n_epochs: number of epoch for C<sub>1</sub>
 
---batch_size:
---learning_rate:
---true_enc_hidden_size:
---true_enc_batch_size:
---true_enc_num_epochs:
---true_enc_learning_rate:
---true_enc_gamma:
---syn_enc_num_epochs:
---syn_enc_batch_size: 
---syn_enc_learning_rate:
+--batch_size: batch size used in C<sub>1</sub>
+
+--learning_rate: learning rate used in C<sub>1</sub>
+
+--true_enc_hidden_size: size of the encoding in C<sub>0</sub>
+
+--true_enc_batch_size: batch size used in C<sub>0</sub>
+
+--true_enc_num_epochs: number of epoch for C<sub>0</sub>
+
+--true_enc_learning_rate: learning rate used in C<sub>0</sub>
+
+--true_enc_gamma: *gamma* value in learning rate shceduler for C<sub>0</sub>
+
+--syn_enc_num_epochs: number of epoch for C<sub>2</sub>
+
+--syn_enc_batch_size: batch size used in C<sub>2</sub>
+
+--syn_enc_learning_rate: learning rate used in C<sub>2</sub>
 
 ## Prediction
 
