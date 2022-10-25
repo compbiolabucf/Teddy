@@ -9,8 +9,8 @@ pd.options.mode.chained_assignment = None
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--data_directory", type=int,help='directory for raw omics data',default='/home/tanvir/Diabetes/data/raw_data/') 
-    parser.add_argument("--save_directory", type=int,help='directory to save processed data',default='/home/tanvir/Diabetes/data/processed_data/') 
+    parser.add_argument("--data_directory", type=str,help='directory for raw omics data',default='/home/tanvir/Diabetes/data/raw_data/') 
+    parser.add_argument("--save_directory", type=str,help='directory to save processed data',default='/home/tanvir/Diabetes/data/processed_data/') 
     args = parser.parse_args()
     print(args)
 	
