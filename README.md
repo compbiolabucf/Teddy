@@ -18,7 +18,7 @@ Time series gene expression in TEDDY is collected for a subset of enrolled parti
 **data_processing.py**
 Run data_processing.py to pre-preprocess the gene expression and SNP data for imputation.
 
-*command*: python data_processing.py --data_directory --save_directory 
+*command*: python data_processing.py --data_directory /home/tanvir/Diabetes/data/raw_data/ --save_directory /home/tanvir/Diabetes/data/processed_data/
 
 **imputation.py**
 Run imputation.py to perform gene expression imputation on processed data.  
