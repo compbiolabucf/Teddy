@@ -4,7 +4,11 @@ Time series gene expression in TEDDY is collected for a subset of enrolled parti
 
 ### **Framework**
 
-![Image description](https://github.com/compbiolabucf/Teddy/blob/main/Figure_2-1.png =250x250)
+![Image description](https://github.com/compbiolabucf/Teddy/blob/main/Figure_2-1.png)
+
+
+### **User manual**
+
 
 ## Required Python packages
 - Numpy (>=1.17.2)
