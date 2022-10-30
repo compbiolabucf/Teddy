@@ -18,4 +18,6 @@ Dummy SNP and gene expression datasets can be downloaded from this https://knigh
 
 $prediction1.py$ is a simplified version of our prediction algorithm that shows the workflow using only imputed gene expression and SNPs. To go through the actual prediction algorithm please refer to $prediction.py$ which can only be run with TEDDY datasets. The study is designed to solve the limitation of missing values in TEDDY datasets to predict IA. For a more generalized approach involving multi-modal time series and cross-sectional datasets, we have developed another framework downloadable from https://github.com/compbiolabucf/TSEst.
 
+![Image description](https://github.com/compbiolabucf/Teddy/blob/main/Figure_2-1.png)
 
+![Image description](https://github.com/compbiolabucf/Teddy/blob/main/Figure_3.png)
