@@ -37,9 +37,6 @@ if __name__ == '__main__':
     parser.add_argument("--serial", type=int,help='gene exp cutoff', default=16) 
     parser.add_argument("--device", type=str,default='cuda') 
     parser.add_argument("--option", type=int,help='0 for combined data, 6 for only gene exp',default=0) 
-    parser.add_argument("--demo", type=bool,default=False) 
-    parser.add_argument("--HLA", type=bool,default=False) 
-    parser.add_argument("--fh", type=bool,default=False) 
     parser.add_argument("--data_directory", type=str,default='/home/tanvir/Diabetes/') 
     args = parser.parse_args()
     print(args)
@@ -139,76 +136,6 @@ input_data = np.load('gene.npy') #large_cohort
 snp_data = pd.read_csv('snp.csv',header=None) # #sparse.load_npz('/data/tahmed/Diabetes/snp_to_gene/gan/snp.npz') #
 # generating random labels instead of IA status
 y = np.random.choice([0,1],(len(input_data),1),replace=True).astype(np.float32)
-
-if args.fh is True:
-    hist = pd.read_sas(data_directory+'family_history.sas7bdat')
-    hist1 = hist.filter(regex='^SIBLINGDIABETIC',axis=1)
-    hist2 = hist.loc[:,['MOTHERDIABETIC','FATHERDIABETIC','MaskID']]
-    hist = pd.concat((hist1,hist2),axis=1)
-
-    snp_sample_name,x_ind,y_ind = np.intersect1d(snp_sample_name,hist.MaskID,return_indices=True)
-    snp_data = snp_data[x_ind]
-    hist = hist.iloc[y_ind,:]
-    ID = []
-    for col in hist.columns:
-        hist_1 = hist.loc[hist[col].astype(str) == "b'Yes'"]
-        ID.extend(hist_1.MaskID)
-
-    fh = np.zeros((np.size(hist.MaskID),1)).astype(np.float32)
-    for e,i in enumerate(hist.MaskID):
-        if i in ID:
-            fh[e]=1
-
-    subset = [2,7,8,9]
-    snp_data = snp_data[:,subset]
-    fh = np.concatenate((fh,snp_data),axis=1) 
-else:
-    fh = snp_data
-
-if args.HLA is True:
-    HLA = pd.read_csv(data_directory+'HLA.csv',header=None)
-    snp_sample_name,x_ind,y_ind = np.intersect1d(HLA.iloc[:,0],snp_sample_name,return_indices=True)
-    HLA_data = HLA.iloc[x_ind,[1]]
-    fh = fh[y_ind,:]
-    fh = np.concatenate((fh,HLA_data),axis=1)
-
-fh = np.expand_dims(fh,1)
-fh = np.repeat(fh,16,1)
-
-#niddk_id,x_ind,y_ind = np.intersect1d(niddk_id,snp_sample_name,return_indices=True)
-#input_data = input_data[x_ind,:,:]
-#y = y[x_ind] 
-#fh = fh[y_ind,:]
-
-if args.demo is True:
-
-    ### add demography
-    demo = pd.read_csv(data_directory+'screening_form.csv',usecols=[3,11,22,23,24,25,26,27,35])
-    demo = demo.set_index(['MaskID'])
-    gender = demo.iloc[:,1].astype(str)
-    gender[gender=="b'Female'"] = 0
-    gender[gender=="b'Male'"] = 1
-    #gender[gender=='nan'] = 0
-
-    ethnicity = demo.iloc[:,[0,2,3,4,5,6,7]].astype(str)
-    ethnicity[ethnicity== "b'No'"] = 0
-    ethnicity[ethnicity== "b'Yes'"] = 1
-    ethnicity[ethnicity=='nan'] = 0
-    ethnicity[ethnicity=="b'Unknown or not reported'"] = 0
-    ethnicity = ethnicity.drop(['RACE_UNKNOWNORNOTREPORTED'],axis=1)
-
-    demography = ethnicity# pd.concat((gender,ethnicity),axis=1,ignore_index=False)
-    xy,x_ind,y_ind = np.intersect1d(niddk_id,demography.index,return_indices=True)
-    input_data = input_data[x_ind,:]
-    fh = fh[x_ind,:]
-    y = y[x_ind]
-    demography = demography.iloc[y_ind].values.astype(float)
-
-    #demography = np.expand_dims(demography,1)
-    demography = np.expand_dims(demography,1)
-    demography = np.repeat(demography,16,1)
-
-    fh = np.concatenate((fh,demography),axis=2) 
 
 input_data = np.concatenate([fh,input_data],2).astype(np.float32)
 input_data = input_data[:,0:args.serial,:]
